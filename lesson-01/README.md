@@ -5,6 +5,7 @@
 
 1. [Configurações](./configuration/)
 2. [JSX](./jsx/)
+2. [Renderização](./renderization/)
 </details>
 
 <details>
