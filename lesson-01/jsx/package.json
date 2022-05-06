@@ -1,0 +1,29 @@
+{
+  "name": "lesson-01",
+  "version": "1.0.0",
+  "description": "- Criar uma pasta no local desejado com o nome do projeto\r - Abrir um terminal (bash, cmd, powershell)\r   - Verificar se o `node` está instalado:\r     ```bash\r     node -v\r     ```\r   - Verificar se o `npm` está instalado:\r     ```bash\r     npm -v\r     ```\r - Navegar no terminal até a pasta do projeto\r - Iniciar o projeto:\r   - rodar o comando no terminal:\r     ```bash\r     npm init\r     ```\r   - Ao executar, será solicitada algumas informações. Mas para iniciar, podemos só confirmar até o fim\r     - no arquivo `package.json`, procurar o item `\"main\": \"index.js\"` e mudá-lo para `\"main\": \"src/index.js\"`\r - Instalar na pasta do projeto os recursos do React: \r   - rodar o comando no terminal:\r     ```bash\r     npm install --save react@latest react-dom@latest react-scripts@latest\r     ```\r     - no arquivo `package.json`, procurar o item `\"scripts\"` e adicionar antes do `\"test\": \"...\"` o valor `\"start\": \"react-scripts start\",`, como:\r       ```json\r       \"scripts\": {\r         \"start\": \"react-scripts start\",\r         \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\r       },\r       ```\r - Criar uma pasta na raiz do projeto com o nome `public`\r   - Criar um arquivo `index.html` nessa pasta\r     - O arquivo deve ser um arquivo HTML-5 básico, com uma __div com id root__, exemplo:\r       ```html\r       <!DOCTYPE html>\r       <html lang=\"pt-br\">\r       <head>\r         <title>React App</title>\r       </head>\r       <body>\r         <div id=\"root\"></div>\r       </body>\r       </html>\r       ```\r - Criar uma pasta na raiz do projeto com o nome `src`\r   - Criar um arquivo `styles.css` nessa pasta\r     - Você pode criar um estilo default pro projeto, exemplo:\r       ```css\r       * {\r         margin: 0;\r         padding: 0;\r       }",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
