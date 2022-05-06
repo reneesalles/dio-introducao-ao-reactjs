@@ -9,7 +9,8 @@ function somar(a, b) {
 function primeiroJSX() {
     return (
         <div>
-            <h1>Renêe Sales - Introdução ao ReactJS</h1>
+            <h1>Introdução ao ReactJS</h1>
+            <h2>Usando JSX</h2>
             <h3 className='teste'>Soma: {somar(5, 13)}</h3>
         </div>
     );
