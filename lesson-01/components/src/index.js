@@ -5,8 +5,6 @@ import ComponenteA from './ComponenteA';
 import ComponenteB from './ComponenteB';
 import './styles.css';
 
-//const soma = (a, b) => a + b;
-
 const App = () => {
     const soma = (a, b) => alert(a + b);
 
@@ -15,7 +13,7 @@ const App = () => {
             Olá Mundo!!
             <br/>
             <Button onClick={() => soma(1, 2)} name="Renêe Sales" />
-            <ComponenteA>
+            <ComponenteA title="Componente A :)">
                 <ComponenteB>
                     <Button onClick={() => soma(10, 22)} name="Componente Dentro de componentes" />
                 </ComponenteB>

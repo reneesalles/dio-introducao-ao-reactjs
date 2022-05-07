@@ -1,11 +1,11 @@
 import React from 'react';
 
 const ComponenteA = (props) => {
-    const { children } = props;
+    const { children, title } = props;
 
     return (
         <div>
-            <h2>Componente A :)</h2>
+            <h2>{title}</h2>
             {children}
         </div>
     );
