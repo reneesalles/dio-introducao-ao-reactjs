@@ -7,6 +7,7 @@
 2. [JSX](./jsx/)
 2. [Renderização](./renderization/)
 2. [Componentes](./components/)
+2. [Ciclo de Vida](./lifecycle/)
 </details>
 
 <details>
