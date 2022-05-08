@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     // mode: 'production',
@@ -17,5 +18,16 @@ module.exports = {
                 }
             }
         ]
+    },
+    plugins: [
+        new HtmlWebPackPlugin({
+            template: './src/index.html',
+            filename: './index.html'
+        })
+    ],
+    devServer: {
+        allowedHosts: [
+            '.gitpod.io', //adicionando esse host porque estou testando no gitpod
+        ],
     }
 };

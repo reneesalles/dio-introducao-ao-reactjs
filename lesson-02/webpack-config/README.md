@@ -45,12 +45,15 @@
     - o `webpack --mode production` está executando o webpack no modo produção, utilizando de minificadores de código e outros plugins padrão
         - também é possível passar outros argumentos depois do `--mode`, como `development`
 
-### Webpack com `babel`
+### Adicionando módulo `babel`
 
-- Após criar e configurar o webpack acima, podemos também adicionar modulos, como o `babel`
 - Instalar os pacotes do `babel`:
     ```bash
     npm i -D @babel/core babel-loader @babel/preset-env @babel/preset-react
+    ```
+- Também instalar os pacotes do `react`:
+    ```bash
+    npm i react react-dom
     ```
 - No arquivo `webpack.config.js`, devemos adicionar ao `module.exports` a propriedade `module`, e mudar o valor da propriedade `entry` para `./src/index.js` (caso ainda não tenha sido feito):
     ```js
@@ -75,3 +78,73 @@
         }
     };
     ```
+- Criar um arquivo `.babelrc` com as configurações:
+    ```json
+    {
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+        ]
+    }
+    ```
+- No arquivo `package.json` ir no bloco `task` e adicionar a linha:
+    ```json
+    "dev": "webpack --mode development"
+    ```
+    - o nome `"dev"` pode ser qualquer nome, e o mesmo será usado para rodarmos a aplicação usando:
+        ```bash
+        npm run dev
+        ```
+    
+### Adicionando plugins `html`
+
+- Instalar pacotes `html`:
+    ```bash
+    npm i -D html-webpack-plugin html-loader
+    ```
+- No arquivo `webpack.config.js`, devemos importar o plugin `HtmlWebPackPlugin`, e adicionar ao `module.exports` a propriedade `plugins`:
+    ```js
+    const path = require('path');
+    const HtmlWebPackPlugin = require('html-webpack-plugin');
+
+    module.exports = {
+        // mode: 'production',
+        entry: './src/index.js',
+        output: {
+            path: path.resolve(__dirname, 'dist'),
+            filename: 'bundle.js'
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: 'babel-loader'
+                    }
+                }
+            ]
+        },
+        plugins: [
+            new HtmlWebPackPlugin({
+                template: './src/index.html',
+                filename: './index.html'
+            })
+        ]
+    };
+    ```
+
+### Adicionando um `dev-server`
+
+- Instalar o pacote `webpack-dev-server`:
+    ```bash
+    npm i -D webpack-dev-server
+    ```
+- No arquivo `package.json` ir no bloco `task` e adicionar a linha:
+    ```json
+    "start:dev": "webpack-dev-server"
+    ```
+    - o nome `"start:dev"` pode ser qualquer nome, e o mesmo será usado para rodarmos a aplicação usando:
+        ```bash
+        npm run start:dev
+        ```
