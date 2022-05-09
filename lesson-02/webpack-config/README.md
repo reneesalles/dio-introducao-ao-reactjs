@@ -108,7 +108,7 @@
     const HtmlWebPackPlugin = require('html-webpack-plugin');
 
     module.exports = {
-        // mode: 'production',
+        devtool: 'source-map',
         entry: './src/index.js',
         output: {
             path: path.resolve(__dirname, 'dist'),
@@ -147,4 +147,73 @@
     - o nome `"start:dev"` pode ser qualquer nome, e o mesmo será usado para rodarmos a aplicação usando:
         ```bash
         npm run start:dev
+        ```
+
+### Adicionando o `eslint`
+
+- ~~Não consegui rodar com cminha versão do React, Node, Npm ou sei lá~~
+- Instalar os pacotes do `eslint`:
+    ```bash
+    npm i -D eslint babel-eslint eslint-plugin-react eslint-watch
+    ```
+- Criar um arquivo `.eslintrc` com as configurações:
+    ```json
+    {
+        "plugins": [
+            "react"
+        ],
+        "parser": "babel-eslint",
+        "parserOptions": {
+            "ecmaVersion": 6,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true
+            }
+        },
+        "env": {
+            "es6": true,
+            "browser": true,
+            "node": true,
+            "mocha": true
+        },
+        "extends": [
+            "eslint:recommended",
+            "plugin:react/recommended"
+        ],
+        "rules": {
+            "semi": [
+                2,
+                "always"
+            ],
+            "indent": [
+                "error",
+                2
+            ],
+            "object-curly-spacing": [
+                "error",
+                "always"
+            ],
+            "no-extra-parents": "error",
+            "max-len": [
+                "error",
+                {
+                    "code": 100
+                }
+            ],
+            "no-multi-spaces": "error"
+        },
+        "settings": {
+            "react": {
+                "version": "18.1"
+            }
+        }
+    }
+    ```
+- No arquivo `package.json` ir no bloco `task` e adicionar a linha:
+    ```json
+    "eslint": "eslint ./src/*.js"
+    ```
+    - o nome `"eslint"` pode ser qualquer nome, e o mesmo será usado para rodarmos a aplicação usando:
+        ```bash
+        npm run eslint
         ```
