@@ -4,8 +4,6 @@ const App = () => {
         <div>
             <p>Digital Innovation One</p>
             <p>Bem vindo a nossa aula D:</p>
-            <p>webpack + babel + devserver</p>
-            <Button />
         </div>
     );
 };
