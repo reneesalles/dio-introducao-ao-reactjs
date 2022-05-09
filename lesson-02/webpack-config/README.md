@@ -151,64 +151,64 @@
 
 ### Adicionando o `eslint`
 
-- ~~Não consegui rodar com cminha versão do React, Node, Npm ou sei lá~~
 - Instalar os pacotes do `eslint`:
     ```bash
     npm i -D eslint babel-eslint eslint-plugin-react eslint-watch
     ```
-- Criar um arquivo `.eslintrc` com as configurações:
-    ```json
-    {
-        "plugins": [
-            "react"
-        ],
-        "parser": "babel-eslint",
-        "parserOptions": {
-            "ecmaVersion": 6,
-            "sourceType": "module",
-            "ecmaFeatures": {
-                "jsx": true
-            }
-        },
-        "env": {
-            "es6": true,
-            "browser": true,
-            "node": true,
-            "mocha": true
-        },
-        "extends": [
-            "eslint:recommended",
-            "plugin:react/recommended"
-        ],
-        "rules": {
-            "semi": [
-                2,
-                "always"
+- Configurar o `eslint`:
+    - Rodar o comando:
+        ```bash
+        npx eslint --init
+        ```
+        - Seguir os passos da imagem:
+        ![passos do comando: npx eslint --init](npx_eslint_init.png)
+        - depois se certificar de o arquivo final ficar igual ao `.eslintrc` à seguir
+    - Criar um arquivo `.eslintrc` com as configurações:
+        ```json
+        {
+            "env": {
+                "browser": true,
+                "es2021": true
+            },
+            "extends": [
+                "eslint:recommended",
+                "plugin:react/recommended"
             ],
-            "indent": [
-                "error",
-                2
+            "parserOptions": {
+                "ecmaFeatures": {
+                    "jsx": true
+                },
+                "ecmaVersion": "latest",
+                "sourceType": "module"
+            },
+            "plugins": [
+                "react"
             ],
-            "object-curly-spacing": [
-                "error",
-                "always"
-            ],
-            "no-extra-parents": "error",
-            "max-len": [
-                "error",
-                {
-                    "code": 100
+            "rules": {
+                "indent": [
+                    "error",
+                    "tab"
+                ],
+                "linebreak-style": [
+                    "error",
+                    "windows"
+                ],
+                "quotes": [
+                    "error",
+                    "double"
+                ],
+                "semi": [
+                    "error",
+                    "always"
+                ]
+            },
+            "settings": {
+                "react": {
+                    "version": "18.1"
                 }
-            ],
-            "no-multi-spaces": "error"
-        },
-        "settings": {
-            "react": {
-                "version": "18.1"
             }
         }
-    }
-    ```
+        ```
 - No arquivo `package.json` ir no bloco `task` e adicionar a linha:
     ```json
     "eslint": "eslint ./src/*.js"
