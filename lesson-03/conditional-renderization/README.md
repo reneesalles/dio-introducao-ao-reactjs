@@ -1,4 +1,4 @@
-# DIO - Introdução ao ReactJS - Lição 02 - Webpack Config
+# DIO - Introdução ao ReactJS - Lição 03 - Renderização Condicional
 
 ## Anotações
 
